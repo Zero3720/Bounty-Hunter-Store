@@ -1,19 +1,12 @@
 {
-  "version": "0.2.0",
+  "version": "0.0.0",
   "configurations": [
     {
       "type": "java",
-      "name": "Main",
+      "name": "Launch App",
       "request": "launch",
-      "mainClass": "Main",
-      "projectName": "Bounty Hunter Store_4c714795"
-    },
-    {
-      "type": "java",
-      "name": "Bounty Hunter Store launch",
-      "request": "launch",
-      "mainClass": "src.Main",
-      "vmArgs": "--module-path <lib> --add-modules javafx.controls,javafx.fxml"
+      "mainClass": "src.Main.Main",
+      "vmArgs": "--module-path lib --add-modules javafx.controls,javafx.fxml"
     }
   ]
 }
