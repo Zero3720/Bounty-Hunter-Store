@@ -1,4 +1,3 @@
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +8,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("MainStage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
         primaryStage.setTitle("Bounty Hunter Store");
         primaryStage.setScene(new Scene(root, 400, 300));
         primaryStage.show();
@@ -17,7 +16,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        Application.launch(args);
+        launch(args);
         
     }
 }
