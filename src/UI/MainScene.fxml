@@ -39,13 +39,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainSceneController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainSceneController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane cache="true" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
             <Button fx:id="MainButton" defaultButton="true" graphicTextGap="5.0" layoutX="285.0" layoutY="281.0" mnemonicParsing="false" onAction="#LoginHunter" prefHeight="63.0" prefWidth="70.0" text="Log in" textAlignment="CENTER" />
-            <TextField fx:id="TxtFild1" layoutX="285.0" layoutY="253.0" onAction="#Cpfi_ID_Compare" prefHeight="26.0" prefWidth="70.0" promptText="Ex: 12345" />
-            <Text layoutX="239.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPFI: " wrappingWidth="45.2047119140625">
+            <TextField fx:id="TxtFld1" layoutX="285.0" layoutY="253.0" onAction="#Cpfi_Input" prefHeight="26.0" prefWidth="70.0" promptText="Ex: 12345" />
+            <Text boundsType="VISUAL" layoutX="239.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPFI: " wrappingWidth="45.2047119140625">
                <font>
                   <Font size="18.0" />
                </font>

@@ -21,7 +21,7 @@ public class Main extends Application {
     Parent root = FXMLLoader.load(fxmlUrl);
     
     Scene scene = new Scene(root);
-    primaryStage.setTitle("Bounty Hunter Store");
+    primaryStage.setTitle("Bounty Hunter Store Terminal - Login Page");
     primaryStage.setScene(scene);
     primaryStage.show();
 }
