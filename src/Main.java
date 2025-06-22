@@ -8,7 +8,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("D:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\src\\UI\\MainScene.fxml"));
         primaryStage.setTitle("Bounty Hunter Store");
         primaryStage.setScene(new Scene(root, 400, 300));
         primaryStage.show();

@@ -1,0 +1,17 @@
+{
+  "java.project.sourcePaths": ["src"],
+  "java.project.outputPath": "bin",
+  "java.project.referencedLibraries": [
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx-swt.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.controls.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.media.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\jfx.incubator.richtext.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.fxml.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\jdk.jsobject.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.graphics.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\jfx.incubator.input.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.web.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.base.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.swing.jar"
+  ]
+}

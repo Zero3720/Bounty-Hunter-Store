@@ -6,16 +6,10 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Current File",
-      "request": "launch",
-      "mainClass": "${file}"
-    },
-    {
-      "type": "java",
-      "name": "Main",
+      "name": "Launch App",
       "request": "launch",
       "mainClass": "Main",
-      "projectName": "Bounty-Hunter-Store_7f479c35"
+      "vmArgs": "--module-path \"c:\\Program Files\\Java\\javafx-sdk-24.0.1\\lib\" --add-modules javafx.controls,javafx.fxml --enable-native-access=javafx.graphics"
     }
   ]
 }
