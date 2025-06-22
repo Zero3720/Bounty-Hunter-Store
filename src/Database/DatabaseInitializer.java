@@ -15,17 +15,17 @@ public class DatabaseInitializer {
             DatabaseInserter.insertHunter(new Hunter(80983913, "Cad Bane", 3000, "None"));
             DatabaseInserter.insertHunter(new Hunter(76017029, "IG-88", 6000, "None"));
             DatabaseInserter.insertHunter(new Hunter(55946112, "Bossk", 4000, "Trandoshan Hunters"));
-            DatabaseInserter.insertHunter(new Hunter(00000000, "System Test", 999999, "None"));
+            DatabaseInserter.insertHunter(new Hunter(10000000, "System Test", 999999, "None"));
 
-            // Create bounties (true = active)
-            DatabaseInserter.insertBounty(new Bounty(1, "Jedi", 50000), true);
-            DatabaseInserter.insertBounty(new Bounty(2, "Smuggler", 15000), true);
-            DatabaseInserter.insertBounty(new Bounty(3, "War Criminal", 30000), false);
+            // Create bounties
+            DatabaseInserter.insertBounty(new Bounty(1, "Jedi", 50000));
+            DatabaseInserter.insertBounty(new Bounty(2, "Smuggler", 15000));
+            DatabaseInserter.insertBounty(new Bounty(3, "War Criminal", 30000));
 
             // Assign bounties to hunters
-            DatabaseInserter.assignBountyToHunter(1001, 1);
-            DatabaseInserter.assignBountyToHunter(1001, 2);
-            DatabaseInserter.assignBountyToHunter(1003, 3);
+            DatabaseInserter.assignBountyToHunter(60898790, 1);
+            DatabaseInserter.assignBountyToHunter(60898790, 2);
+            DatabaseInserter.assignBountyToHunter(00000001, 3);
 
             // Create blasters
             DatabaseInserter.insertBlaster(new Blaster(1, "Black", 2500, "DL-44", 50, 30, "BlasTech"));

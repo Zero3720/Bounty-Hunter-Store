@@ -8,8 +8,8 @@ import Models.*;
 public class DatabaseHandler {
     // Database connection details
     private static final String DB_URL = "jdbc:mysql://localhost:3306/bounty_hunter_db?useUnicode=true&characterEncoding=UTF-8";
-    private static final String USER = "root"; // Change to your MySQL username
-    private static final String PASSWORD = "root"; // Change to your MySQL password
+    private static final String USER = "root";
+    private static final String PASSWORD = "root";
     
     private static Connection connection;
 
@@ -30,7 +30,7 @@ public class DatabaseHandler {
     // Hunter Operations -----------------------------------------------------------------
     
     public static Hunter authenticateHunter(int cfpi) {
-        String sql = "SELECT * FROM `Caçador` WHERE `CFPI` = ?";
+        String sql = "SELECT * FROM `Hunter` WHERE `CFPI` = ?";
         
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, cfpi);
@@ -39,9 +39,9 @@ public class DatabaseHandler {
             if (rs.next()) {
                 return new Hunter(
                     rs.getInt("CFPI"),
-                    rs.getString("Nome"),
-                    rs.getInt("Créditos"),
-                    rs.getString("Afiliação")
+                    rs.getString("Name"),
+                    rs.getInt("Credits"),
+                    rs.getString("Affiliation")
                 );
             }
         } catch (SQLException e) {
@@ -51,7 +51,7 @@ public class DatabaseHandler {
     }
     
     public static void updateHunterCredits(int cfpi, int newCredits) {
-        String sql = "UPDATE `Caçador` SET `Créditos` = ? WHERE `CFPI` = ?";
+        String sql = "UPDATE `Hunter` SET `Credits` = ? WHERE `CFPI` = ?";
         
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, newCredits);
@@ -66,9 +66,10 @@ public class DatabaseHandler {
     
     public static List<Bounty> getActiveBounties(int hunterCFPI) {
         List<Bounty> bounties = new ArrayList<>();
-        String sql = "SELECT r.* FROM `Recompensa` r " +
-                     "JOIN `Caçador_has_Recompensa` cr ON r.`idRecompensa` = cr.`Recompensa_idRecompensa` " +
-                     "WHERE cr.`Caçador_CFPI` = ? AND r.`isActive` = 1";
+        // Updated to match new table/column names
+        String sql = "SELECT b.* FROM `Bounty` b " +
+                     "JOIN `Hunter_has_Bounty` hb ON b.`idRecompensa` = hb.`Bounty_idRecompensa` " +
+                     "WHERE hb.`Hunter_CFPI` = ?";
         
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, hunterCFPI);
@@ -77,8 +78,8 @@ public class DatabaseHandler {
             while (rs.next()) {
                 bounties.add(new Bounty(
                     rs.getInt("idRecompensa"),
-                    rs.getString("Categoria"),
-                    rs.getInt("Valor")
+                    rs.getString("Category"),
+                    rs.getInt("Reward")
                 ));
             }
         } catch (SQLException e) {
@@ -88,9 +89,10 @@ public class DatabaseHandler {
     }
     
     public static int getTotalBountyValue(int hunterCFPI) {
-        String sql = "SELECT SUM(`Valor`) AS total FROM `Recompensa` r " +
-                     "JOIN `Caçador_has_Recompensa` cr ON r.`idRecompensa` = cr.`Recompensa_idRecompensa` " +
-                     "WHERE cr.`Caçador_CFPI` = ? AND r.`isActive` = 1";
+        // Updated to match new table/column names
+        String sql = "SELECT SUM(`Reward`) AS total FROM `Bounty` b " +
+                     "JOIN `Hunter_has_Bounty` hb ON b.`idRecompensa` = hb.`Bounty_idRecompensa` " +
+                     "WHERE hb.`Hunter_CFPI` = ?";
         
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, hunterCFPI);
@@ -117,12 +119,12 @@ public class DatabaseHandler {
             while (rs.next()) {
                 blasters.add(new Blaster(
                     rs.getInt("idBlaster"),
-                    rs.getString("Cor"),
-                    rs.getInt("Preço"),
-                    rs.getString("Nome"),
-                    rs.getInt("Capacidade"),
-                    rs.getInt("Alcance"),
-                    rs.getString("Fabricante")
+                    rs.getString("Color"),
+                    rs.getInt("Price"),
+                    rs.getString("Name"),
+                    rs.getInt("Capacity"),
+                    rs.getInt("Range"),
+                    rs.getString("Manufacturer")
                 ));
             }
         } catch (SQLException e) {
@@ -141,11 +143,11 @@ public class DatabaseHandler {
             while (rs.next()) {
                 items.add(new Item(
                     rs.getInt("idItem"),
-                    rs.getInt("Preço"),
-                    rs.getString("Nome"),
-                    rs.getInt("Quantidade"),
-                    rs.getString("Fabricante"),
-                    rs.getString("Descrição")
+                    rs.getInt("Price"),
+                    rs.getString("Name"),
+                    rs.getInt("Quantity"),
+                    rs.getString("Manufacturer"),
+                    rs.getString("Description")
                 ));
             }
         } catch (SQLException e) {
@@ -206,20 +208,22 @@ public class DatabaseHandler {
     // Helper Methods ------------------------------------------------------------------
     
     private static int getHunterCredits(int cfpi) throws SQLException {
-        String sql = "SELECT `Créditos` FROM `Caçador` WHERE `CFPI` = ?";
+        // Updated to match new table/column names
+        String sql = "SELECT `Credits` FROM `Hunter` WHERE `CFPI` = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, cfpi);
             ResultSet rs = stmt.executeQuery();
-            return rs.next() ? rs.getInt("Créditos") : 0;
+            return rs.next() ? rs.getInt("Credits") : 0;
         }
     }
     
     private static int getBlasterPrice(int blasterId) throws SQLException {
-        String sql = "SELECT `Preço` FROM `Blaster` WHERE `idBlaster` = ?";
+        // Updated to match new column name
+        String sql = "SELECT `Price` FROM `Blaster` WHERE `idBlaster` = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, blasterId);
             ResultSet rs = stmt.executeQuery();
-            return rs.next() ? rs.getInt("Preço") : 0;
+            return rs.next() ? rs.getInt("Price") : 0;
         }
     }
 }

@@ -4,7 +4,7 @@ import Models.*;
 import java.sql.*;
 
 public class DatabaseInserter {
-    // Reuse your existing DB connection details
+    // Database connection details
     private static final String DB_URL = "jdbc:mysql://localhost:3306/bounty_hunter_db?useUnicode=true&characterEncoding=UTF-8";
     private static final String USER = "root";
     private static final String PASSWORD = "root";
@@ -19,9 +19,9 @@ public class DatabaseInserter {
     }
 
     // Hunter insertion
-     public static void insertHunter(Hunter hunter) throws SQLException {
-        String sql = "INSERT INTO `Caçador` (`CFPI`, `Nome`, `Créditos`, `Afiliação`) VALUES (?, ?, ?, ?) "
-                   + "ON DUPLICATE KEY UPDATE `Nome`=VALUES(`Nome`), `Créditos`=VALUES(`Créditos`), `Afiliação`=VALUES(`Afiliação`)";
+    public static void insertHunter(Hunter hunter) throws SQLException {
+        String sql = "INSERT INTO `Hunter` (`CFPI`, `Name`, `Credits`, `Affiliation`) VALUES (?, ?, ?, ?) "
+                   + "ON DUPLICATE KEY UPDATE `Name`=VALUES(`Name`), `Credits`=VALUES(`Credits`), `Affiliation`=VALUES(`Affiliation`)";
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, hunter.getCfpi());
@@ -32,23 +32,22 @@ public class DatabaseInserter {
         }
     }
 
-    // Bounty insertion (with active status)
-    public static void insertBounty(Bounty bounty, boolean isActive) throws SQLException {
-        String sql = "INSERT INTO `Recompensa` (`idRecompensa`, `Categoria`, `Valor`, `isActive`) VALUES (?, ?, ?, ?) "
-                   + "ON DUPLICATE KEY UPDATE `Categoria`=VALUES(`Categoria`), `Valor`=VALUES(`Valor`), `isActive`=VALUES(`isActive`)";
+    // Bounty insertion (fixed to match Bounty table structure)
+    public static void insertBounty(Bounty bounty) throws SQLException {
+        String sql = "INSERT INTO `Bounty` (`idRecompensa`, `Category`, `Reward`) VALUES (?, ?, ?) "
+                   + "ON DUPLICATE KEY UPDATE `Category`=VALUES(`Category`), `Reward`=VALUES(`Reward`)";
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, bounty.getIdRecompensa());
             stmt.setString(2, bounty.getCategory());
             stmt.setInt(3, bounty.getReward());
-            stmt.setBoolean(4, isActive);
             stmt.executeUpdate();
         }
     }
 
-    // Assign bounty to hunter
+    // Assign bounty to hunter (fixed to match Hunter_has_Bounty table)
     public static void assignBountyToHunter(int hunterCFPI, int bountyId) throws SQLException {
-        String sql = "INSERT IGNORE INTO `Caçador_has_Recompensa` (`Caçador_CFPI`, `Recompensa_idRecompensa`) VALUES (?, ?)";
+        String sql = "INSERT IGNORE INTO `Hunter_has_Bounty` (`Hunter_CFPI`, `Bounty_idRecompensa`) VALUES (?, ?)";
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, hunterCFPI);
@@ -57,10 +56,10 @@ public class DatabaseInserter {
         }
     }
 
-    // Blaster insertion
+    // Blaster insertion (fixed to match Blaster table)
     public static void insertBlaster(Blaster blaster) throws SQLException {
-        String sql = "INSERT INTO `Blaster` (`idBlaster`, `Cor`, `Preço`, `Nome`, `Capacidade`, `Alcance`, `Fabricante`) VALUES (?, ?, ?, ?, ?, ?, ?) "
-                   + "ON DUPLICATE KEY UPDATE `Cor`=VALUES(`Cor`), `Preço`=VALUES(`Preço`), `Nome`=VALUES(`Nome`), `Capacidade`=VALUES(`Capacidade`), `Alcance`=VALUES(`Alcance`), `Fabricante`=VALUES(`Fabricante`)";
+        String sql = "INSERT INTO `Blaster` (`idBlaster`, `Color`, `Price`, `Name`, `Capacity`, `Range`, `Manufacturer`) VALUES (?, ?, ?, ?, ?, ?, ?) "
+                   + "ON DUPLICATE KEY UPDATE `Color`=VALUES(`Color`), `Price`=VALUES(`Price`), `Name`=VALUES(`Name`), `Capacity`=VALUES(`Capacity`), `Range`=VALUES(`Range`), `Manufacturer`=VALUES(`Manufacturer`)";
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, blaster.getId());
@@ -74,10 +73,10 @@ public class DatabaseInserter {
         }
     }
 
-    // Item insertion
+    // Item insertion (fixed to match Item table)
     public static void insertItem(Item item) throws SQLException {
-        String sql = "INSERT INTO `Item` (`idItem`, `Preço`, `Nome`, `Quantidade`, `Fabricante`, `Descrição`) VALUES (?, ?, ?, ?, ?, ?) "
-                   + "ON DUPLICATE KEY UPDATE `Preço`=VALUES(`Preço`), `Nome`=VALUES(`Nome`), `Quantidade`=VALUES(`Quantidade`), `Fabricante`=VALUES(`Fabricante`), `Descrição`=VALUES(`Descrição`)";
+        String sql = "INSERT INTO `Item` (`idItem`, `Price`, `Name`, `Quantity`, `Manufacturer`, `Description`) VALUES (?, ?, ?, ?, ?, ?) "
+                   + "ON DUPLICATE KEY UPDATE `Price`=VALUES(`Price`), `Name`=VALUES(`Name`), `Quantity`=VALUES(`Quantity`), `Manufacturer`=VALUES(`Manufacturer`), `Description`=VALUES(`Description`)";
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, item.getIdItem());
