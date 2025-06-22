@@ -1,6 +1,8 @@
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import Database.DatabaseInitializer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,6 +30,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+        DatabaseInitializer.Setup();
         launch(args);
         
     }

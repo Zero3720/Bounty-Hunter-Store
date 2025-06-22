@@ -2,9 +2,10 @@
   "java.project.sourcePaths": ["src"],
   "java.project.outputPath": "bin",
   "java.project.referencedLibraries": [
+    "lib\\mysql-connector-j-9.3.0.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.media.jar",
     "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx-swt.jar",
     "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.controls.jar",
-    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.media.jar",
     "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\jfx.incubator.richtext.jar",
     "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.fxml.jar",
     "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\jdk.jsobject.jar",
