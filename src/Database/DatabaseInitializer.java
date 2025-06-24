@@ -18,17 +18,19 @@ public class DatabaseInitializer {
             DatabaseInserter.insertHunter(new Hunter(10000000, "System Test", 999999, "None"));
 
             // Create bounties
-            DatabaseInserter.insertBounty(new Bounty(1, "Jedi", 50000));
-            DatabaseInserter.insertBounty(new Bounty(2, "Smuggler", 15000));
-            DatabaseInserter.insertBounty(new Bounty(3, "War Criminal", 30000));
+            DatabaseInserter.insertBounty(new Bounty(165, "System Bounty", 50000));
+            DatabaseInserter.insertBounty(new Bounty(19185, "Regional Bounty", 80000));
+            DatabaseInserter.insertBounty(new Bounty(2285, "Regional Bounty", 55000));
+            DatabaseInserter.insertBounty(new Bounty(1, "Galatic Bounty", 200000));
 
             // Assign bounties to hunters
-            DatabaseInserter.assignBountyToHunter(60898790, 1);
-            DatabaseInserter.assignBountyToHunter(60898790, 2);
-            DatabaseInserter.assignBountyToHunter(00000001, 3);
+            DatabaseInserter.assignBountyToHunter(60898790, 2285);
+            DatabaseInserter.assignBountyToHunter(60898790, 2285);
+            DatabaseInserter.assignBountyToHunter(55946112, 2285);
+            DatabaseInserter.assignBountyToHunter(00000001, 1);
 
             // Create blasters
-            DatabaseInserter.insertBlaster(new Blaster(1, "Black", 2500, "DL-44", 50, 30, "BlasTech"));
+            DatabaseInserter.insertBlaster(new Blaster(1, "Red", 2500, "DL-44", 50, 30, "BlasTech"));
             DatabaseInserter.insertBlaster(new Blaster(2, "Silver", 3500, "EE-3", 100, 100, "Merr-Sonn"));
             DatabaseInserter.insertBlaster(new Blaster(3, "Green", 1800, "S-5", 75, 60, "SoroSuub"));
 
