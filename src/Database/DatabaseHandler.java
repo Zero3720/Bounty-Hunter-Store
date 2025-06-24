@@ -204,6 +204,53 @@ public class DatabaseHandler {
             }
         }
     }
+
+    public static boolean purchaseItem(int hunterCFPI, int itemId) {
+    try {
+        // Start transaction
+        connection.setAutoCommit(false);
+        
+        // 1. Get item price
+        int price = getItemPrice(itemId);
+        
+        // 2. Get hunter credits
+        int currentCredits = getHunterCredits(hunterCFPI);
+        
+        // 3. Check if hunter can afford
+        if (currentCredits < price) {
+            return false;
+        }
+        
+        // 4. Deduct credits
+        updateHunterCredits(hunterCFPI, currentCredits - price);
+        
+        // 5. Record purchase
+        String sql = "INSERT INTO `Item_has_Caçador` (`Item_idItem`, `Caçador_CFPI`) VALUES (?, ?)";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, itemId);
+            stmt.setInt(2, hunterCFPI);
+            stmt.executeUpdate();
+        }
+        
+        // Commit transaction
+        connection.commit();
+        return true;
+    } catch (SQLException e) {
+        try {
+            connection.rollback();
+        } catch (SQLException ex) {
+            System.err.println("Rollback failed: " + ex.getMessage());
+        }
+        System.err.println("Item purchase failed: " + e.getMessage());
+        return false;
+    } finally {
+        try {
+            connection.setAutoCommit(true);
+        } catch (SQLException e) {
+            System.err.println("Auto-commit reset failed: " + e.getMessage());
+        }
+    }
+}
     
     // Helper Methods ------------------------------------------------------------------
     
@@ -226,4 +273,13 @@ public class DatabaseHandler {
             return rs.next() ? rs.getInt("Price") : 0;
         }
     }
+
+    private static int getItemPrice(int itemId) throws SQLException {
+        String sql = "SELECT `Price` FROM `Item` WHERE `idItem` = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, itemId);
+            ResultSet rs = stmt.executeQuery();
+            return rs.next() ? rs.getInt("Price") : 0;
+    }
+}
 }

@@ -1,8 +1,8 @@
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
 import Database.DatabaseInitializer;
+import UI.HostServicesProvider;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,6 +22,10 @@ public class Main extends Application {
     // Load FXML
     Parent root = FXMLLoader.load(fxmlUrl);
     
+    //
+    HostServicesProvider.setHostServices(getHostServices());
+
+
     Scene scene = new Scene(root);
     primaryStage.setTitle("Bounty Hunter Store Terminal - Login Page");
     primaryStage.setScene(scene);
