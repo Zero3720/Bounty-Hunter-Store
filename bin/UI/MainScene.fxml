@@ -40,9 +40,9 @@
   <children>
     <AnchorPane cache="true" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="MainButton" defaultButton="true" graphicTextGap="5.0" layoutX="285.0" layoutY="281.0" mnemonicParsing="false" onAction="#LoginHunter" prefHeight="63.0" prefWidth="70.0" text="Log in" textAlignment="CENTER" />
-            <TextField fx:id="TxtFld1" layoutX="285.0" layoutY="253.0" prefHeight="26.0" prefWidth="70.0" promptText="Ex: 12345" />
-            <Text boundsType="VISUAL" layoutX="239.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPFI: " wrappingWidth="45.2047119140625">
+            <Button fx:id="MainButton" defaultButton="true" graphicTextGap="5.0" layoutX="285.0" layoutY="281.0" mnemonicParsing="false" onAction="#LoginHunter" prefHeight="63.0" prefWidth="90.0" text="Log in" textAlignment="CENTER" />
+            <TextField fx:id="TxtFld1" layoutX="285.0" layoutY="253.0" prefHeight="26.0" prefWidth="90.0" promptText="Ex: 12345678" />
+            <Text boundsType="VISUAL" layoutX="239.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPFI: " wrappingWidth="45.2047119140625">
                <font>
                   <Font size="18.0" />
                </font>

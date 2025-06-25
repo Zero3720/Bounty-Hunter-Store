@@ -167,9 +167,9 @@
             </SplitPane>
             <MenuBar>
               <menus>
-                <Menu mnemonicParsing="false" text="Settings">
+                <Menu mnemonicParsing="false" text="Settings" visible="false">
                      <items>
-                        <CheckMenuItem fx:id="MusicToggle" mnemonicParsing="false" onAction="#MusicToggle" selected="true" text="Music" />
+                        <CheckMenuItem fx:id="MusicToggle" mnemonicParsing="false" onAction="#MusicToggle" text="Music" />
                      </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">

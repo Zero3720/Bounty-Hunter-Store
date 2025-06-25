@@ -7,7 +7,7 @@ import Models.*;
 public class DatabaseInitializer {
     public static void Setup() {
         System.out.println("Initializing bounty hunter database...");
-        
+
         try {
             // Create sample hunters
             DatabaseInserter.insertHunter(new Hunter(92257797, "Boba Fett", 5000, "Mandalorians"));
@@ -36,9 +36,11 @@ public class DatabaseInitializer {
 
             // Create equipment items
             DatabaseInserter.insertItem(new Item(1, 500, "Grappling Hook", 1, "Merr-Sonn", "Tibanna-gas propelled"));
-            DatabaseInserter.insertItem(new Item(2, 300, "Thermal Detonator", 3, "SoroSuub", "Class-A thermal explosive"));
-            DatabaseInserter.insertItem(new Item(3, 1200, "Mandalorian Vambraces", 1, "MandalArms", "Beskar alloy plating"));
-            
+            DatabaseInserter
+                    .insertItem(new Item(2, 300, "Thermal Detonator", 3, "SoroSuub", "Class-A thermal explosive"));
+            DatabaseInserter
+                    .insertItem(new Item(3, 1200, "Mandalorian Vambraces", 1, "MandalArms", "Beskar alloy plating"));
+
             System.out.println("Bounty hunter database initialized successfully!");
         } catch (SQLException e) {
             System.err.println("Error initializing database: " + e.getMessage());
