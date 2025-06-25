@@ -24,8 +24,8 @@ public class DatabaseInitializer {
             DatabaseInserter.insertBounty(new Bounty(1, "Galatic Bounty", 200000));
 
             // Assign bounties to hunters
-            DatabaseInserter.assignBountyToHunter(60898790, 2285);
-            DatabaseInserter.assignBountyToHunter(60898790, 2285);
+            DatabaseInserter.assignBountyToHunter(60898790, 165);
+            DatabaseInserter.assignBountyToHunter(60898790, 19185);
             DatabaseInserter.assignBountyToHunter(55946112, 2285);
             DatabaseInserter.assignBountyToHunter(00000001, 1);
 
@@ -43,5 +43,6 @@ public class DatabaseInitializer {
         } catch (SQLException e) {
             System.err.println("Error initializing database: " + e.getMessage());
         }
+        
     }
 }

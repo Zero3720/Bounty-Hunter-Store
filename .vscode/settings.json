@@ -2,17 +2,33 @@
   "java.project.sourcePaths": ["src"],
   "java.project.outputPath": "bin",
   "java.project.referencedLibraries": [
-    "lib\\javafx.base.jar",
-    "lib\\javafx.controls.jar",
-    "lib\\javafx.fxml.jar",
-    "lib\\javafx.graphics.jar",
-    "lib\\javafx.media.jar",
-    "lib\\javafx.swing.jar",
-    "lib\\javafx.web.jar",
-    "lib\\javafx-swt.jar",
-    "lib\\jdk.jsobject.jar",
-    "lib\\jfx.incubator.input.jar",
-    "lib\\jfx.incubator.richtext.jar",
-    "lib\\mysql-connector-j-9.3.0.jar"
+    "lib\\mysql-connector-j-9.3.0.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.media.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx-swt.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.controls.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\jfx.incubator.richtext.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.fxml.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\jdk.jsobject.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.graphics.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\jfx.incubator.input.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.web.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.base.jar",
+    "d:\\FILES\\]-FACULDADE\\--FACULDADE-- 2025\\C07\\Trabalho\\Bounty-Hunter-Store\\lib\\javafx.swing.jar"
+  ],
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "bounty_hunter_db",
+      "database": "bounty_hunter_db",
+      "username": "root",
+      "password": "root"
+    }
   ]
 }
