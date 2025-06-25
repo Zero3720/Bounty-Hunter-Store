@@ -1,4 +1,5 @@
 package UI;
+
 import Database.DatabaseHandler;
 import Models.Hunter;
 import javafx.event.ActionEvent;
@@ -11,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class MainSceneController {
+public class StartSceneCtrl {
 
     @FXML
     private Button MainButton;
@@ -19,10 +20,10 @@ public class MainSceneController {
     @FXML
     private TextField TxtFld1;
 
-   @FXML
+    @FXML
     void LoginHunter(ActionEvent event) {
         String input = TxtFld1.getText().trim();
-        
+
         // Validate input exists
         if (input.isEmpty()) {
             showAlert("Input Error", "Please enter a CFPI");
@@ -37,7 +38,7 @@ public class MainSceneController {
             showAlert("Input Error", "CFPI must be a numeric value");
             return;
         }
-        
+
         try {
             Hunter hunter = DatabaseHandler.authenticateHunter(cfpi);
             if (hunter != null) {
@@ -53,16 +54,16 @@ public class MainSceneController {
 
     private void loadMainMenu(Hunter hunter) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Scene1.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("src\\UI\\MainMenu.fxml"));
             Parent root = loader.load();
-            
-            Scene1Ctrl controller = loader.getController();
+
+            MainMenuCtrl controller = loader.getController();
             controller.setCurrentHunter(hunter);
-            
+
             Stage stage = (Stage) MainButton.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Bounty Hunter Store Terminal - Main Menu");
-            
+
         } catch (Exception e) {
             showAlert("Navigation Error", "Failed to load main menu: " + e.getMessage());
             e.printStackTrace();

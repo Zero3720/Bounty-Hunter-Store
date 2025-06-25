@@ -13,29 +13,21 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-    // Get absolute path to FXML
-    Path fxmlPath = Paths.get("src", "UI", "MainScene.fxml").toAbsolutePath();
-    
-    // Convert to URL
-    URL fxmlUrl = fxmlPath.toUri().toURL();
-    
-    // Load FXML
-    Parent root = FXMLLoader.load(fxmlUrl);
-    
-    //
-    HostServicesProvider.setHostServices(getHostServices());
 
+        Parent root = FXMLLoader.load(getClass().getResource("src\\UI\\StartScene.fxml"));
 
-    Scene scene = new Scene(root);
-    primaryStage.setTitle("Bounty Hunter Store Terminal - Login Page");
-    primaryStage.setScene(scene);
-    primaryStage.show();
-}
+        // HostServicesProvider is used to access host services like opening URLs
+        HostServicesProvider.setHostServices(getHostServices());
 
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("Bounty Hunter Store Terminal - Login Page");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 
     public static void main(String[] args) {
         DatabaseInitializer.Setup();
         launch(args);
-        
+
     }
 }
